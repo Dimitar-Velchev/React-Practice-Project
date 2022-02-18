@@ -1,3 +1,5 @@
+import { playAudio } from "../util";
+
 const LibrarySong = ({
   song,
   songs,
@@ -5,34 +7,28 @@ const LibrarySong = ({
   audioRef,
   isPlaying,
   setSongs,
-  id
+  id,
 }) => {
   const songSelectHandler = () => {
+    
     setCurrentSong(song);
-    if (isPlaying) {
-      const playPromise = audioRef.current.play();
 
-      const newSongs = songs.map((song) => {
-        if (song.id === id) {
-          return {
-            ...song,
-            active: true,
-          };
-        } else {
-          return {
-            ...song,
-            active: false,
-          };
-        }
-      });
-      setSongs(newSongs);
-
-      if (playPromise !== undefined) {
-        playPromise.then((audio) => {
-          audioRef.current.play();
-        });
+    const newSongs = songs.map((song) => {
+      if (song.id === id) {
+        return {
+          ...song,
+          active: true,
+        };
+      } else {
+        return {
+          ...song,
+          active: false,
+        };
       }
-    }
+    });
+    setSongs(newSongs);
+
+    playAudio(isPlaying, audioRef);
   };
 
   return (
