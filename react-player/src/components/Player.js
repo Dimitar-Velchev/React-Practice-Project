@@ -33,7 +33,7 @@ const Player = ({
       }
     });
     setSongs(newSongs);
-  }, [currentSong]);
+  },[currentSong]);
 
   const playSongHandler = () => {
     if (isPlaying) {
