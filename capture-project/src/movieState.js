@@ -1,17 +1,17 @@
-//Import Images
-import athlete from './img/athlete-small.png';
-import goodtimes from './img/goodtimes-small.png';
-import theracer from './img/theracer-small.png';
-import athlete2 from './img/athlete2.png';
-import goodtimes2 from './img/good-times2.jpg';
-import theracer2 from './img/the-racer2.jpg';
+// //Import Images
+// import athlete from './img/athlete-small.png';
+// import goodtimes from './img/goodtimes-small.png';
+// import theracer from './img/theracer-small.png';
+// import athlete2 from './img/athlete2.png';
+// import goodtimes2 from './img/good-times2.jpg';
+// import theracer2 from './img/the-racer2.jpg';
 
 export const MovieState = () => {
   return [
     {
       title: 'The Athlete',
-      mainImg: "/image/athlete-small.png",
-      secondaryImg: "/image/athlete2.png",
+      mainImg: "/images/athlete-small.png",
+      secondaryImg: "/images/athlete2.png",
       url: '/work/the-athlete',
       awards: [
         {
@@ -33,9 +33,9 @@ export const MovieState = () => {
     },
     {
       title: 'Good Times',
-      mainImg: "/image/goodtimes-small.png",
+      mainImg: "/images/goodtimes-small.png",
       url: '/work/good-times',
-      secondaryImg:" /image/good-times2.jpg",
+      secondaryImg:" /images/good-times2.jpg",
       awards: [
         {
           title: 'Truly A masterpiece',
@@ -56,9 +56,9 @@ export const MovieState = () => {
     },
     {
       title: 'The Racer',
-      mainImg:"/image/theracer-small.png",
+      mainImg:"/images/theracer-small.png",
       url: '/work/the-racer',
-      secondaryImg:"/image/the-racer2.jpg",
+      secondaryImg:"/images/the-racer2.jpg",
       awards: [
         {
           title: 'Truly A masterpiece',
