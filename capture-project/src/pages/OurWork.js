@@ -1,9 +1,19 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+//Animation framer-motion
+import { motion } from "framer-motion";
+import { pageAnimation } from "../animation";
+
 const OurWork = () => {
   return (
-    <StyledWork>
+    <StyledWork
+      exit="exit"
+      variants={pageAnimation}
+      initial="hidden"
+      animate="show"
+      style={{ background: "#fff" }}
+    >
       <StyledMovie>
         <h2>The Athlete</h2>
         <div className="line"></div>
@@ -29,26 +39,26 @@ const OurWork = () => {
   );
 };
 
-const StyledWork = styled.div`
+const StyledWork = styled(motion.div)`
   min-height: 100vh;
-  overflow:hidden;
+  overflow: hidden;
   padding: 5rem 10rem;
-  h2{
-    padding:1rem 0rem;
+  h2 {
+    padding: 1rem 0rem;
   }
 `;
 
 const StyledMovie = styled.div`
   padding-bottom: 10rem;
-  .line{
+  .line {
     height: 0.5rem;
     background: #cccccc;
     margin-bottom: 3rem;
   }
-  img{
+  img {
     width: 100%;
     height: 70vh;
-   object-fit: cover;
+    object-fit: cover;
   }
 `;
 

@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { MovieState } from "../movieState";
 
+//Animation framer-motion
+import { motion } from "framer-motion";
+import { pageAnimation } from "../animation";
+
 const MovieDetail = () => {
   const history = useHistory();
   const url = history.location.pathname;
@@ -18,7 +22,12 @@ const MovieDetail = () => {
   return (
     <>
       {movie && (
-        <StyledDetails>
+        <StyledDetails
+          exit="exit"
+          variants={pageAnimation}
+          initial="hidden"
+          animate="show"
+        >
           <StyleHeadline>
             <h2>{movie.title}</h2>
             <img src={movie.mainImg} alt="movie" />
@@ -33,7 +42,7 @@ const MovieDetail = () => {
             ))}
           </StlyleAwards>
           <StyledImageDisplay>
-              <img src={movie.secondaryImg} alt="movie" />
+            <img src={movie.secondaryImg} alt="movie" />
           </StyledImageDisplay>
         </StyledDetails>
       )}
@@ -43,7 +52,7 @@ const MovieDetail = () => {
 
 //Award component
 
-const Award = ({title,description}) => {
+const Award = ({ title, description }) => {
   return (
     <StyleAward>
       <h3>{title}</h3>
@@ -53,10 +62,9 @@ const Award = ({title,description}) => {
   );
 };
 
-
 //Styling
 
-const StyledDetails = styled.div`
+const StyledDetails = styled(motion.div)`
   color: white;
 `;
 
@@ -78,37 +86,36 @@ const StyleHeadline = styled.div`
 `;
 
 const StlyleAwards = styled.div`
-min-height: 80vh;
-display: flex;
-margin: 5rem 10rem;
-align-items: center;
-justify-content: space-around;
-
+  min-height: 80vh;
+  display: flex;
+  margin: 5rem 10rem;
+  align-items: center;
+  justify-content: space-around;
 `;
 
 const StyleAward = styled.div`
-    padding: 5rem;
-    h3{
-        font-size: 2rem;
-    }
-    .line{
-        width: 100%;
-        background: #23d997;
-        height: 0.5rem;
-        margin: 1rem 0rem;
-    }
-    p{
-        padding: 2rem 0rem;
-    }
-`
+  padding: 5rem;
+  h3 {
+    font-size: 2rem;
+  }
+  .line {
+    width: 100%;
+    background: #23d997;
+    height: 0.5rem;
+    margin: 1rem 0rem;
+  }
+  p {
+    padding: 2rem 0rem;
+  }
+`;
 
 const StyledImageDisplay = styled.div`
-min-height: 50vh;
-img{
+  min-height: 50vh;
+  img {
     width: 100%;
     height: 100vh;
     object-fit: cover;
-}
-`
+  }
+`;
 
 export default MovieDetail;
