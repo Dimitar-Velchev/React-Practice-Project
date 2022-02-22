@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 //Animation framer-motion
 import { motion } from "framer-motion";
-import { pageAnimation } from "../animation";
+import { pageAnimation, fade, photoAnimation,lineAnimation } from "../animation";
 
 const OurWork = () => {
   return (
@@ -15,10 +15,16 @@ const OurWork = () => {
       style={{ background: "#fff" }}
     >
       <StyledMovie>
-        <h2>The Athlete</h2>
-        <div className="line"></div>
+        <motion.h2 variants={fade}>The Athlete</motion.h2>
+        <motion.div variants={lineAnimation} className="line"></motion.div>
         <Link to="/work/the-athlete">
-          <img src="/images/athlete-small.png" alt="Athlete" />
+          <StyleHide>
+            <motion.img
+              variants={photoAnimation}
+              src="/images/athlete-small.png"
+              alt="Athlete"
+            />
+          </StyleHide>
         </Link>
       </StyledMovie>
       <StyledMovie>
@@ -52,7 +58,7 @@ const StyledMovie = styled.div`
   padding-bottom: 10rem;
   .line {
     height: 0.5rem;
-    background: #cccccc;
+    background: #23d997;
     margin-bottom: 3rem;
   }
   img {
@@ -60,6 +66,10 @@ const StyledMovie = styled.div`
     height: 70vh;
     object-fit: cover;
   }
+`;
+
+const StyleHide = styled.div`
+  overflow: hidden;
 `;
 
 export default OurWork;
