@@ -1,32 +1,37 @@
 //Styled Components
 import {StyleDescription,StyledAbout,StyledImage,StyledHide} from "../styles"
+import Wave from "./Wave";
+//Animation motion
+import {motion} from "framer-motion"
+import { titleAnimation,fade,photoAnimation } from "../animation";
  
 const AboutSection = () => {
   return (
     <StyledAbout>
       <StyleDescription>
-        <div className="title">
+        <motion.div className="title">
           <StyledHide>
-            <h2>We work to make</h2>
+            <motion.h2 variants={titleAnimation}>We work to make</motion.h2>
           </StyledHide>
           <StyledHide>
-            <h2>
+            <motion.h2 variants={titleAnimation}>
               your <span>dreams</span> come
-            </h2>
+            </motion.h2>
           </StyledHide>
           <StyledHide>
-            <h2>true.</h2>
+            <motion.h2 variants={titleAnimation}>true.</motion.h2>
           </StyledHide>
-        </div>
-        <p>
+        </motion.div>
+        <motion.p variants={fade}>
           Contact us for any photography or videography ideas that you have.We
           have professionals with amazing skills.
-        </p>
-        <button>Contact Us</button>
+        </motion.p>
+        <motion.button variants={fade}>Contact Us</motion.button>
       </StyleDescription>
       <StyledImage>
-        <img src="/images/home1.png" alt="guy with a camera" />
+        <motion.img variants={photoAnimation} src="/images/home1.png" alt="guy with a camera" />
       </StyledImage>
+      <Wave/>
     </StyledAbout>
   );
 };
