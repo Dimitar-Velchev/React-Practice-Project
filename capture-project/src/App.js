@@ -7,10 +7,12 @@ import MovieDetail from "./pages/MovieDetail";
 //Global Style
 import GlobalStyle from "./components/GlobalStyle";
 //React Router
-import { Route, Switch,useLocation } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
 
 //Animation framer-motion
 import { AnimatePresence } from "framer-motion";
+
+import ScrollTop from "./components/ScrollTop";
 
 function App() {
   const location = useLocation();
@@ -19,6 +21,7 @@ function App() {
       <GlobalStyle />
       <Nav />
       <AnimatePresence exitBeforeEnter>
+        <ScrollTop />
         <Switch location={location} key={location.pathname}>
           <Route path="/" exact>
             <AboutUs />
