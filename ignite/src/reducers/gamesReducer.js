@@ -2,7 +2,7 @@ const initialState = {
   popular: [],
   newGames: [],
   upComming: [],
-  searched:[],
+  searched: [],
 };
 
 const gamesReducer = (state = initialState, action) => {
@@ -12,6 +12,13 @@ const gamesReducer = (state = initialState, action) => {
     default:
       return { ...state };
   }
+};
+
+//ACTION CREATOR
+const fetchGames = () => {
+  return {
+    type: "FETCH_GAMES",
+  };
 };
 
 export default gamesReducer;
