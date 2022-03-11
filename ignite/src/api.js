@@ -32,9 +32,9 @@ const lastYear = `${currentYear - 1}-${currentMonth}-${currentDay}`;
 const nextYear = `${currentYear + 1}-${currentMonth}-${currentDay}`;
 
 //FULL URL
-const popular_games = `${base_url}/games?key=${API_KEY}&dates=${lastYear},${currentDate}&ordering=-rating&page_size=10`;
-const upcoming_games = `${base_url}/games?key=${API_KEY}&dates=${currentDate},${nextYear}&ordering=-added&page_size=10`
-const new_games = `${base_url}/games?key=${API_KEY}&dates=${lastYear},${currentDate}&orderig=-released&page_size=10`
+const popular_games = `${base_url}/games?key=${API_KEY}&dates=${lastYear},${currentDate}&ordering=-rating&page_size=15`;
+const upcoming_games = `${base_url}/games?key=${API_KEY}&dates=${currentDate},${nextYear}&ordering=-added&page_size=15`
+const new_games = `${base_url}/games?key=${API_KEY}&dates=${lastYear},${currentDate}&orderig=-released&page_size=15`
 
 
 //SHORT URL
