@@ -20,3 +20,4 @@ const detailReducer = (state = initialState, action) => {
 };
 
 export default detailReducer;
+
