@@ -14,6 +14,10 @@ import nintendo from "../img/nintendo.svg";
 import gamepad from "../img/gamepad.svg";
 import apple from "../img/apple.svg";
 
+//Star images
+import starEmpty from "../img/star-empty.png";
+import starFull from "../img/star-full.png";
+
 const GameDetail = () => {
   const history = useHistory();
   //Exit Detail
@@ -43,6 +47,20 @@ const GameDetail = () => {
     }
   };
 
+  //Get Stars
+  const getStars = () => {
+    const stars = [];
+    const rating = Math.floor(game.rating);
+    for (let i = 1; i <= 5; i++) {
+      if (i <= rating) {
+        stars.push(<img alt="star" key={i} src={starFull}></img>);
+      } else {
+        stars.push(<img alt="star" key={i} src={starEmpty}></img>);
+      }
+    }
+    return stars
+  };
+
   //Data
   const { screen, game, isLoading } = useSelector((state) => state.detail);
   return (
@@ -54,13 +72,14 @@ const GameDetail = () => {
               <div className="rating">
                 <h3>{game.name}</h3>
                 <p>Rating: {game.rating}</p>
+                {getStars()}
               </div>
               <Info>
                 <h3>Platforms</h3>
                 <Platforms>
                   {game.platforms.map((data) => (
                     <img
-                    alt={data.platform.name}
+                      alt={data.platform.name}
                       key={data.platform.id}
                       src={getPlatform(data.platform.name)}
                     ></img>
@@ -122,6 +141,11 @@ const Stats = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  img{
+    width: 1.5rem;
+    height: 1.5rem;
+    display: inline;
+  }
 `;
 
 const Info = styled(motion.div)`
